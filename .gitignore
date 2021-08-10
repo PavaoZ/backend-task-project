@@ -105,3 +105,6 @@ dist
 
 # Vscode default folder
 .vscode/
+
+# ENV file
+.env
