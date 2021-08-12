@@ -1,4 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
+import "reflect-metadata";
 
 const app: Application = express()
 const db = require('./database/models')
@@ -15,5 +16,5 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 db.sequelize.sync().then(() => {
-    app.listen(PORT, () => console.log('Server running'))
+    app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
 })
