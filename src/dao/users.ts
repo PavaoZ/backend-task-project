@@ -15,8 +15,6 @@ export function store(user: { _id: string, email: string, firstName: string, las
 
 export function findAll(query: string = "", email: string = "", phoneNumber: string = ""): Promise<any> {
     let whereL = {}
-    
-    console.log('asdaskd')
 
     if(query != "")
         (whereL as any).firstName = {
