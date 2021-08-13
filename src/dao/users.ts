@@ -25,17 +25,17 @@ export function findOne(id: string): Promise<any> {
           }, include: [{ all: true }] })
 }
 
-export function update(user: { _id: string, email: string, firstName: string, lastName: string, phoneNumber: Array<{ type: string, value: string }> }, id: string): Promise<any> {
-    return User.
-            update({
-                _id: uuid.v1(),
-                email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                phoneNumber: (user.phoneNumber).toString()
-            }, {
-                where: {
-                    _id: id
-                }
-            })
+export function update(user: { email: string, firstName: string, lastName: string, phoneNumber: Array<{ type: string, value: string }> }, id: string): Promise<any> {
+    User.
+        update({
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phoneNumber: (user.phoneNumber).toString()
+        }, {
+            where: {
+                _id: id
+            }
+        })
+    return findOne(id)
 }

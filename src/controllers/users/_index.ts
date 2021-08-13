@@ -1,7 +1,6 @@
 import * as getUsers from './users.get'
-// import * as UsersPost from './users.post'
+import * as storeUser from './users.post'
 import * as getUser from './users-single.get'
-// import * as UsersUpdate from './users.put'
+import * as updateUser from './users.update'
 
-export { getUsers, getUser }
-// export { UsersGet, UsersPost, UsersGetSingle, UsersUpdate }
+export { getUsers, getUser, storeUser, updateUser }
