@@ -12,12 +12,10 @@ const PORT = process.env.PORT || 5000
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('help')
-})
-
 routes.initRoutes(app)
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
 })
+
+export default app

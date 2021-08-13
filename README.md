@@ -17,6 +17,7 @@ MYSQL
 npm build -> build files
 npm dev -> run locally for development purposes, nodemon runs also
 npm start -> run compiled files (for production purposes)
+npm test -> run tests (only a few added)
 
 1. Clone repository
 2. Make your own .env file (.env.example included for reference)
