@@ -1,8 +1,9 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
 import "reflect-metadata";
+import db from './database/models'
+import * as routes from './routes/_index'
 
-const app: Application = express()
-const db = require('./database/models')
+const app = express()
 
 require('dotenv').config()
 
@@ -14,6 +15,8 @@ app.use(express.json())
 app.get('/', (req: Request, res: Response) => {
     res.send('help')
 })
+
+routes.initRoutes(app)
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
