@@ -2,9 +2,12 @@ import { Request, Response } from 'express'
 import { UserDao } from '../../dao/_index'
 
 export function list(req: Request, res: Response) {
-  let query = req.query.q as string
-  let email = req.query.email as string
-  let phoneNumber = req.query.phoneNumber as string
+  let query = "", email = "", phoneNumber = ""
+  if(req.query) {
+    if (req.query.query) { query = (req.query as any).query; }
+    if (req.query.email) { email = (req.query as any).email; }
+    if (req.query.phoneNumber) { phoneNumber = (req.query as any).phoneNumber; }
+  }
 
   return UserDao
     .findAll(query, email, phoneNumber)

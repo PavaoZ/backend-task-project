@@ -13,24 +13,22 @@ export function store(user: { _id: string, email: string, firstName: string, las
         })
 }
 
-export function findAll(query = "", email = "", phoneNumber = ""): Promise<any> {
+export function findAll(query: string = "", email: string = "", phoneNumber: string = ""): Promise<any> {
     let whereL = {}
+    
+    console.log('asdaskd')
 
-    if(query != "" && query != null) {
+    if(query != "")
         (whereL as any).firstName = {
-            [Op.like]: '%' + query + '%'
-        },
-        (whereL as any).lastName = {
-            [Op.like]: '%' + query + '%'
+            [Op.like]: '%' + query  + '%'
         }
-    }
 
-    if(email != "" && email != null)
+    if(email != "")
         (whereL as any).email = {
             [Op.like]: '%' + email + '%'
         }
 
-    if(email != "" && phoneNumber != null)
+    if(phoneNumber != "")
         (whereL as any).phoneNumber = {
             [Op.like]: '%' + phoneNumber + '%'
         }
