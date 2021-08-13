@@ -1,5 +1,6 @@
 import * as uuid from 'uuid'
 import { User } from '../database/models/user'
+import { Op } from 'sequelize'
 
 export function store(user: { _id: string, email: string, firstName: string, lastName: string, phoneNumber: Array<{ type: string, value: string }> }): Promise<any> {
     return User
@@ -12,9 +13,32 @@ export function store(user: { _id: string, email: string, firstName: string, las
         })
 }
 
-export function findAll(): Promise<any> {
+export function findAll(query = "", email = "", phoneNumber = ""): Promise<any> {
+    let whereL = {}
+
+    if(query != "" && query != null) {
+        (whereL as any).firstName = {
+            [Op.like]: '%' + query + '%'
+        },
+        (whereL as any).lastName = {
+            [Op.like]: '%' + query + '%'
+        }
+    }
+
+    if(email != "" && email != null)
+        (whereL as any).email = {
+            [Op.like]: '%' + email + '%'
+        }
+
+    if(email != "" && phoneNumber != null)
+        (whereL as any).phoneNumber = {
+            [Op.like]: '%' + phoneNumber + '%'
+        }
+
   return User
-    .findAll({ include: [{ all: true }] })
+    .findAll({ where: {
+        [Op.and]: whereL
+    }, include: [{ all: true }] })
 }
 
 export function findOne(id: string): Promise<any> {
