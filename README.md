@@ -19,7 +19,7 @@ npm dev -> run locally for development purposes, nodemon runs also
 npm start -> run compiled files (for production purposes)
 npm test -> run tests (only a few added)
 
-1. Clone repository
+1. Clone repository from branch main
 2. Make your own .env file (.env.example included for reference)
 3. Run command to install relevant node packages: npm i
 4. Make sure a database server is up and running, xamp, mysql workbench, etc...
@@ -36,6 +36,7 @@ Images showing POSTMAN responses:
 ![alt text](https://i.ibb.co/gSzWxjF/Single-user-getting.png)
 ![alt text](https://i.ibb.co/zbqWshn/Store-user.png)
 ![alt text](https://i.ibb.co/NjSwk0b/Validation-error.png)
+![alt text](https://i.ibb.co/xYH5j8h/Querying-with-params.png)
 
 Project recomendations:
 
