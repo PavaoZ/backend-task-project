@@ -2,7 +2,7 @@ import { suite, test } from '@testdeck/mocha';
 import chai from 'chai';
 import { mock, instance } from 'ts-mockito';
 import chaiHttp = require('chai-http');
-import app from '../src/app'
+import app from '../app'
 
 chai.use(chaiHttp)
 

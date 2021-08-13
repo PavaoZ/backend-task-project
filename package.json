@@ -7,7 +7,7 @@
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
     "build": "tsc -p .",
-    "test": "nyc ./node_modules/.bin/_mocha 'tests/**/*.test.ts'"
+    "test": "nyc ./node_modules/.bin/_mocha 'src/tests/**/*.test.ts'"
   },
   "repository": {
     "type": "git",
