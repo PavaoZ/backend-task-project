@@ -10,7 +10,7 @@ chai.should();
 @suite class UserUnitTests {
 
     before() {
-
+        
     }
 
     @test 'Get all users'() {
