@@ -26,3 +26,7 @@ npm start -> run compiled files (for production purposes)
 6. Run seeders with command: sequelize db:seed:all
 7. Run command to start up the app locally: npm run dev
 8. Enjoy.
+
+Project recomendations:
+
+If project gets larger separate logic to repositories, services
