@@ -11,7 +11,7 @@ export function routes(app: Express) {
         body('lastName').isString(),
         body('email').isEmail(),
         body('uuid').isUUID(),
-        body('phoneNumber').isString(),
+        body('phoneNumber').isArray(),
         UserController.storeUser.store
     )
     
@@ -21,7 +21,7 @@ export function routes(app: Express) {
         body('lastName').isString(),
         body('email').isEmail(),
         body('uuid').isUUID(),
-        body('phoneNumber').isString(), 
+        body('phoneNumber').isArray(), 
         UserController.updateUser.update)
 }
 

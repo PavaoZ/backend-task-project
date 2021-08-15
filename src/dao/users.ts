@@ -9,7 +9,7 @@ export function store(user: { _id: string, email: string, firstName: string, las
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            phoneNumber: (user.phoneNumber).toString()
+            phoneNumber: JSON.stringify(user.phoneNumber)
         })
 }
 
@@ -51,7 +51,7 @@ export function update(user: { email: string, firstName: string, lastName: strin
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            phoneNumber: (user.phoneNumber).toString()
+            phoneNumber: JSON.stringify(user.phoneNumber)
         }, {
             where: {
                 _id: id
