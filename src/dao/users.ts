@@ -16,17 +16,17 @@ export function store(user: { _id: string, email: string, firstName: string, las
 export function findAll(query: string = "", email: string = "", phoneNumber: string = ""): Promise<any> {
     let whereL = {}
 
-    if(query != "")
+    if(query)
         (whereL as any).firstName = {
             [Op.like]: '%' + query  + '%'
         }
 
-    if(email != "")
+    if(email)
         (whereL as any).email = {
             [Op.like]: '%' + email + '%'
         }
 
-    if(phoneNumber != "")
+    if(phoneNumber)
         (whereL as any).phoneNumber = {
             [Op.like]: '%' + phoneNumber + '%'
         }
