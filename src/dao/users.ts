@@ -13,21 +13,33 @@ export function store(user: { _id: string, email: string, firstName: string, las
         })
 }
 
+interface comparisonObject {
+    firstName: {
+        [Op.like]: string
+    } | undefined | undefined,
+    email: {
+        [Op.like]: string
+    } | undefined | undefined,
+    phoneNumber: {
+        [Op.like]: string
+    } | undefined
+}
+
 export function findAll(query: string = "", email: string = "", phoneNumber: string = ""): Promise<any> {
     let whereL = {}
 
     if(query)
-        (whereL as any).firstName = {
+        (whereL as comparisonObject).firstName = {
             [Op.like]: '%' + query  + '%'
         }
 
     if(email)
-        (whereL as any).email = {
+        (whereL as comparisonObject).email = {
             [Op.like]: '%' + email + '%'
         }
 
     if(phoneNumber)
-        (whereL as any).phoneNumber = {
+        (whereL as comparisonObject).phoneNumber = {
             [Op.like]: '%' + phoneNumber + '%'
         }
 
