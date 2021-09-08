@@ -68,6 +68,7 @@ export function update(user: { email: string, firstName: string, lastName: strin
             where: {
                 _id: id
             }
+        }).then(user => {
+            return findOne(user.id)    
         })
-    return findOne(id)
 }
